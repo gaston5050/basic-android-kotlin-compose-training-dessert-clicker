@@ -39,19 +39,20 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.dessertclicker.R
 import com.example.dessertclicker.determineDessertToShow
 import com.example.dessertclicker.model.Dessert
 import com.example.dessertclicker.shareSoldDessertsInformation
 import com.example.dessertclicker.ui.theme.DessertClickerTheme
+import com.example.dessertclicker.ui.viewmodel.DessertViewModel
 
-class DessertScreen  ( viewmodel){
+class DessertScreen  {
 
 
     @Composable
-    private fun DessertClickerApp(
-        desserts: List<Dessert>
-    ) {
+    private fun DessertClickerApp(dessertViewmodel: DessertViewModel = viewModel()) {
+        //desserts: List<Dessert
 
         var revenue by rememberSaveable { mutableStateOf(0) }
         var dessertsSold by rememberSaveable { mutableStateOf(0) }

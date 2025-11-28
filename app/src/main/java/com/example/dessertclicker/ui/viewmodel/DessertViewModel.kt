@@ -8,10 +8,17 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModel
 import com.example.dessertclicker.R
 import com.example.dessertclicker.model.Dessert
+import kotlinx.coroutines.flow.MutableStateFlow
 
 class DessertViewModel : ViewModel() {
+    //Mutable interna del viewmodel
+    private val _estado = MutableStateFlow(Dessert())
 
-    private val _estado =mutableStateof(Dessert())
+    //Inmutable del viewmodel
+    val estado <StateFlow<Dessert>> = _estado.asStateFlow()
+
+
+
     /**
      * Determine which dessert to show.
      */
